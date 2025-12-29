@@ -1,247 +1,97 @@
 # eBook Capture Suite
 
-A comprehensive cross-platform toolkit for macOS and Windows that automates the process of capturing, processing, and converting online book content into clean, high-quality PDF files.
+A simple tool for macOS and Windows that captures book pages from your browser and converts them into clean PDF files.
 
-## Overview
+## What It Does
 
-This suite provides a simplified workflow to digitize books from online readers:
-
-- **ebook-capture.py** - Single entry point with interactive menu for the complete workflow
-- **src/capture.py** - Automated screenshot capture from browser-based book readers
-- **src/process.py** - Intelligent image cropping and PDF generation with custom output location
-
-## Features
-
-- **Automated Screenshot Capture**: Captures book pages from browser with configurable page navigation
-- **Smart Frame Detection**: Automatically detects and crops out browser UI, navigation panels, and other non-content elements
-- **Centralized Storage**: All screenshots stored in `~/Documents/ebook_suite/` for easy access
-- **Batch Processing**: Process multiple screenshots at once with progress tracking
-- **PDF Generation**: Creates single, searchable PDF files from processed images
-- **Custom Output Location**: Save PDFs to any location (defaults to ~/Documents/ebooks)
-- **Interactive Workflow**: User-friendly prompts guide you through each step
-- **Quality Preservation**: Maintains image quality while removing unnecessary UI elements
-
-## System Requirements
-
-- **OS**: macOS (10.14+) or Windows (10/11)
-- **Python**: 3.7 or higher
-- **Dependencies**: Pillow, pyautogui, pygetwindow (Windows)
-- **Permissions**:
-  - macOS: Screen recording permissions required
-  - Windows: No special permissions needed
+1. **Captures** screenshots of book pages from your browser automatically
+2. **Processes** images to remove browser UI and navigation
+3. **Creates** a clean PDF file ready to read
 
 ## Quick Start
 
-### Simple Way (Recommended)
+### macOS/Linux
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/yourusername/ebook-capture-suite.git
-cd ebook-capture-suite
-
-# 2. Install dependencies
-pip3 install -r requirements.txt
-
-# 3. Run the interactive tool
-python3 ebook-capture.py
-```
-
-### Advanced Way (Individual Scripts)
-
-```bash
-# Run scripts separately for more control
-python3 src/capture.py    # Capture screenshots
-python3 src/process.py    # Process and create PDF
-```
-
-## Installation
-
-See [docs/installation.md](docs/installation.md) for detailed installation instructions.
-
-## Usage
-
-### Interactive Mode (Recommended)
-
-```bash
-python3 ebook-capture.py
-```
-
-The interactive menu offers three options:
-
-1. **Full workflow** - Captures screenshots, then processes them into a PDF (automated)
-2. **Capture only** - Just capture screenshots for later processing
-3. **Process only** - Process existing screenshots from previous captures
-
-### Manual Mode (Advanced)
-
-#### Step 1: Capture Book Pages
-
-```bash
-python3 src/capture.py
-```
-
-- Prompts for total number of pages
-- Calculates required screenshots (2 pages per screenshot)
-- Waits 15 seconds for browser focus
-- Automatically captures and navigates
-- Saves to `~/Documents/ebook_suite/book_YYYYMMDD_HHMMSS/` directory
-
-#### Step 2: Process and Create PDF
-
-```bash
-python3 src/process.py
-```
-
-- Detects screenshot folders
-- Analyzes and previews crop area
-- Allows manual adjustment
-- Processes all images
-- Generates PDF with custom title and output location (defaults to ~/Documents/ebooks)
-
-## Workflow Example
-
-### Using Interactive Mode
-
-```bash
-python3 ebook-capture.py
-
-# Select option: 1 (Full workflow)
-# Enter: 200 pages
-# Wait 15 seconds, then automatic capture runs...
-# Press Enter to continue to processing
-# Select folder: 1
-# Review preview: y
-# Create PDF: y
-# Enter title: "Advanced Python Programming"
-# Output location: [Enter for default ~/Documents/ebooks]
-
-# Result: Clean PDF saved to ~/Documents/ebooks!
-```
-
-### Using Individual Scripts
-
-```bash
-# Capture
-python3 src/capture.py
-# Enter: 200 pages
-
-# Process
-python3 src/process.py
-# Follow prompts...
-```
-
-## Directory Structure
-
-```
-ebook-capture-suite/
-├── ebook-capture.py        # Main entry point (recommended)
-├── src/
-│   ├── capture.py          # Screenshot capture tool
-│   ├── process.py          # Image processing & PDF creation
-│   └── __init__.py
-├── docs/
-│   ├── installation.md     # Detailed installation guide
-│   ├── usage.md           # Extended usage documentation
-│   └── screenshots/       # Example screenshots
-├── examples/              # Example outputs
-├── tests/                # Unit tests
-├── requirements.txt      # Python dependencies
-├── .gitignore
-├── LICENSE
-└── README.md
-```
-
-## Configuration
-
-### Adjusting Capture Settings
-
-Edit `src/capture.py`:
-```python
-DELAY_TIMEOUT = 3  # Seconds between page captures
-```
-
-### Custom Crop Coordinates
-
-Edit `src/process.py` or use interactive mode:
-```python
-left_x = 215
-top_y = 48
-right_x = 2785
-bottom_y = 1660
-```
-
-## Permissions Required
-
-### macOS
-
-**Screen Recording Permission:**
-1. Open **System Preferences** > **Security & Privacy** > **Privacy**
-2. Select **Screen Recording** from the left sidebar
-3. Enable permission for **Terminal** (or your Python environment)
-4. Restart Terminal after granting permission
-
-**Accessibility Permission (if needed):**
-1. **System Preferences** > **Security & Privacy** > **Privacy**
-2. Select **Accessibility**
-3. Add and enable **Terminal**
+1. **Download** this repository (click "Code" → "Download ZIP" and extract)
+2. **Run** the launcher script:
+   ```bash
+   ./run.sh
+   ```
+   That's it! The script will install everything needed and start the tool.
 
 ### Windows
 
-No special permissions required. The application will work out of the box.
+1. **Download** this repository (click "Code" → "Download ZIP" and extract)
+2. **Double-click** `run.bat`
+
+   That's it! The batch file will install everything needed and start the tool.
+
+## First Time Setup
+
+### macOS Only - Grant Screen Recording Permission
+
+1. Open **System Preferences** → **Security & Privacy** → **Privacy**
+2. Select **Screen Recording**
+3. Enable permission for **Terminal**
+4. Restart Terminal
+
+### Windows
+
+No setup needed! Just run `run.bat`
+
+## Requirements
+
+- **Python 3.7+** ([Download here](https://www.python.org/downloads/))
+  - Windows: Make sure to check "Add Python to PATH" during installation
+- **Internet connection** (for first-time dependency installation)
+
+## How To Use
+
+1. Run the launcher (`./run.sh` or `run.bat`)
+2. Select option **1** for full workflow
+3. Open your book in browser, go to first page
+4. Enter total number of pages
+5. Wait 15 seconds, then automatic capture begins
+6. Review and confirm the crop area
+7. Enter book title
+8. Done! Your PDF is ready
+
+## Where Files Are Saved
+
+- **Screenshots**: `~/Documents/ebook_suite/` (or `C:\Users\<you>\Documents\ebook_suite\` on Windows)
+- **PDFs**: `~/Documents/ebooks/` (or `C:\Users\<you>\Documents\ebooks\` on Windows)
+
+You can choose a different location when prompted.
 
 ## Troubleshooting
 
-### "No book screenshot folders found"
-- Ensure you've run `capture.py` first
-- Check `~/Documents/ebook_suite/` directory
-- Verify folders start with `book_`
+### "Python is not installed"
+- Download Python from [python.org](https://www.python.org/downloads/)
+- Windows: Check "Add Python to PATH" during installation
 
-### Screenshots are blank or incorrect
+### macOS: Screenshots are blank
+- Grant Screen Recording permission (see setup above)
+- Restart Terminal after granting permission
 
-**macOS:**
-- Verify Screen Recording permissions are granted
-- Restart Terminal after granting permissions
-- Ensure browser window is focused during capture
+### Windows: "pygetwindow not installed" message
+- This is optional - the tool works without it
+- It will capture full screen instead of just the window
+- Still works perfectly!
 
-**Windows:**
-- Ensure browser window is focused and in foreground
-- If window detection fails, it will capture full screen (this is normal)
-- Consider installing pygetwindow: `pip install pygetwindow`
+## What's In The Menu
 
-**Both platforms:**
-- Try increasing `DELAY_TIMEOUT` for slower systems
-- Ensure browser window is maximized for best results
+When you run the tool, you'll see:
 
-### Crop area is incorrect
-- Use the interactive adjustment mode (enter 'a' when prompted)
-- Manually specify coordinates based on your screen resolution
-- Check the preview image to verify crop boundaries
+1. **Full workflow** - Capture and create PDF in one go (recommended)
+2. **Capture only** - Just take screenshots
+3. **Process only** - Convert existing screenshots to PDF
+4. **Exit**
 
-### Platform-specific issues
+## Support
 
-**Windows: "pygetwindow not installed" message**
-- This is optional but recommended for better window detection
-- Install with: `pip install pygetwindow`
-- Without it, full screen screenshots will be taken (still works)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues and pull requests.
+- Works on: macOS 10.14+, Windows 10/11
+- For issues: [Create an issue on GitHub](https://github.com/8nevil8/ebook-capture-suite/issues)
 
 ## License
 
-[MIT License](LICENSE)
-
-## Author
-
-Created for efficient book digitization workflows.
-
-## Acknowledgments
-
-- Built with Pillow for image processing
-- Uses pyautogui for automation
-- Inspired by the need for clean, automated book capture
-
-## Disclaimer
-
-This tool is intended for personal use with content you own or have permission to digitize. Please respect copyright laws and terms of service for online book platforms.
+MIT License - See [LICENSE](LICENSE) file
