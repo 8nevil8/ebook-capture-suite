@@ -1,97 +1,90 @@
 # eBook Capture Suite
 
-A simple tool for macOS and Windows that captures book pages from your browser and converts them into clean PDF files.
+Automatically capture book pages from your browser and convert them to PDF. Simple one-click installation!
 
-## What It Does
+## 🚀 One-Command Install & Run
 
-1. **Captures** screenshots of book pages from your browser automatically
-2. **Processes** images to remove browser UI and navigation
-3. **Creates** a clean PDF file ready to read
+### macOS / Linux
 
-## Quick Start
+**Option 1: One Command (Recommended)**
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/8nevil8/ebook-capture-suite/main/ebook-capture.sh)
+```
 
-### macOS/Linux
-
-1. **Download** this repository (click "Code" → "Download ZIP" and extract)
-2. **Run** the launcher script:
-   ```bash
-   ./run.sh
-   ```
-   That's it! The script will install everything needed and start the tool.
+**Option 2: Download and Run**
+1. [Download ebook-capture.sh](https://raw.githubusercontent.com/8nevil8/ebook-capture-suite/main/ebook-capture.sh)
+2. Open Terminal: `bash ebook-capture.sh`
 
 ### Windows
 
-1. **Download** this repository (click "Code" → "Download ZIP" and extract)
-2. **Double-click** `run.bat`
+1. [Download ebook-capture.bat](https://raw.githubusercontent.com/8nevil8/ebook-capture-suite/main/ebook-capture.bat)
+2. Double-click it
 
-   That's it! The batch file will install everything needed and start the tool.
+**That's it!** One script does everything:
+- ✅ Downloads all files
+- ✅ Installs dependencies
+- ✅ Creates desktop shortcut
+- ✅ Runs the tool automatically
 
-## First Time Setup
+## 📋 Requirements
 
-### macOS Only - Grant Screen Recording Permission
+- **Python 3.7+** - [Download here](https://www.python.org/downloads/)
+  - Windows: Check "Add Python to PATH" during install
+- Internet connection
 
-1. Open **System Preferences** → **Security & Privacy** → **Privacy**
-2. Select **Screen Recording**
-3. Enable permission for **Terminal**
-4. Restart Terminal
+## 🎯 How to Use
 
-### Windows
+After installation:
 
-No setup needed! Just run `run.bat`
+1. **Start the tool**
+   - macOS: Double-click `eBook-Capture.command` on Desktop
+   - Windows: Double-click `eBook Capture.bat` on Desktop
 
-## Requirements
+2. **Select Option 1** (Full workflow)
 
-- **Python 3.7+** ([Download here](https://www.python.org/downloads/))
-  - Windows: Make sure to check "Add Python to PATH" during installation
-- **Internet connection** (for first-time dependency installation)
+3. **Open your book** in browser, go to first page
 
-## How To Use
+4. **Enter total pages** and wait 15 seconds
 
-1. Run the launcher (`./run.sh` or `run.bat`)
-2. Select option **1** for full workflow
-3. Open your book in browser, go to first page
-4. Enter total number of pages
-5. Wait 15 seconds, then automatic capture begins
-6. Review and confirm the crop area
-7. Enter book title
-8. Done! Your PDF is ready
+5. **Done!** PDF created automatically
 
-## Where Files Are Saved
+## 📁 Where Files Are Saved
 
-- **Screenshots**: `~/Documents/ebook_suite/` (or `C:\Users\<you>\Documents\ebook_suite\` on Windows)
-- **PDFs**: `~/Documents/ebooks/` (or `C:\Users\<you>\Documents\ebooks\` on Windows)
+- **Screenshots**: `~/Documents/ebook_suite/`
+- **PDFs**: `~/Documents/ebooks/` (you can change this)
 
-You can choose a different location when prompted.
-
-## Troubleshooting
+## 🆘 Troubleshooting
 
 ### "Python is not installed"
-- Download Python from [python.org](https://www.python.org/downloads/)
-- Windows: Check "Add Python to PATH" during installation
+Download Python from [python.org](https://www.python.org/downloads/)
+- Windows: Check "Add Python to PATH" ✅
 
 ### macOS: Screenshots are blank
-- Grant Screen Recording permission (see setup above)
-- Restart Terminal after granting permission
+1. System Preferences → Security & Privacy → Privacy → Screen Recording
+2. Enable Terminal ✅
+3. Restart Terminal
 
-### Windows: "pygetwindow not installed" message
-- This is optional - the tool works without it
-- It will capture full screen instead of just the window
-- Still works perfectly!
+### Windows: "pygetwindow not installed"
+- Don't worry! Tool still works
+- It captures full screen instead of just window
+- Still creates perfect PDFs
 
-## What's In The Menu
+## 📖 Full Documentation
 
-When you run the tool, you'll see:
+- [Installation Guide](docs/installation.md)
+- [Usage Guide](docs/usage.md)
 
-1. **Full workflow** - Capture and create PDF in one go (recommended)
-2. **Capture only** - Just take screenshots
-3. **Process only** - Convert existing screenshots to PDF
-4. **Exit**
+## 🔄 Update
 
-## Support
+To update to the latest version, just run the script again:
+- macOS: `bash ebook-capture.sh`
+- Windows: Double-click `ebook-capture.bat`
+
+## 💬 Support
 
 - Works on: macOS 10.14+, Windows 10/11
-- For issues: [Create an issue on GitHub](https://github.com/8nevil8/ebook-capture-suite/issues)
+- Issues: [GitHub Issues](https://github.com/8nevil8/ebook-capture-suite/issues)
 
-## License
+## 📄 License
 
-MIT License - See [LICENSE](LICENSE) file
+MIT License
