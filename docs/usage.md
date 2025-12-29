@@ -1,6 +1,6 @@
 # Usage Guide
 
-This comprehensive guide covers all features and use cases for the eBook Capture Suite.
+This comprehensive guide covers all features and use cases for the eBook Capture Suite (macOS & Windows).
 
 ## Table of Contents
 
@@ -30,6 +30,7 @@ python3 ebook-capture.py
 
 ### Quick Example - Manual Mode
 
+**macOS/Linux:**
 ```bash
 # Step 1: Capture book pages
 python3 src/capture.py
@@ -37,6 +38,33 @@ python3 src/capture.py
 # Step 2: Process and create PDF
 python3 src/process.py
 ```
+
+**Windows:**
+```cmd
+# Step 1: Capture book pages
+python src/capture.py
+
+# Step 2: Process and create PDF
+python src/process.py
+```
+
+### Platform Notes
+
+**macOS:**
+- Requires Screen Recording permissions (see installation guide)
+- Captures active window using AppleScript
+- Restart Terminal after granting permissions
+
+**Windows:**
+- No special permissions needed
+- Captures active window using pygetwindow (if installed)
+- Falls back to full screen capture if pygetwindow is not available
+- Full screen capture works perfectly - just crop later
+
+**Both Platforms:**
+- Screenshots saved to `~/Documents/ebook_suite/` (or `C:\Users\<username>\Documents\ebook_suite\` on Windows)
+- PDFs default to `~/Documents/ebooks/` (or `C:\Users\<username>\Documents\ebooks\` on Windows)
+- Press Ctrl+C anytime to stop capture
 
 ---
 

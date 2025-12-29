@@ -1,6 +1,6 @@
 # eBook Capture Suite
 
-A comprehensive toolkit for macOS that automates the process of capturing, processing, and converting online book content into clean, high-quality PDF files.
+A comprehensive cross-platform toolkit for macOS and Windows that automates the process of capturing, processing, and converting online book content into clean, high-quality PDF files.
 
 ## Overview
 
@@ -23,10 +23,12 @@ This suite provides a simplified workflow to digitize books from online readers:
 
 ## System Requirements
 
-- **OS**: macOS (tested on macOS 10.14+)
+- **OS**: macOS (10.14+) or Windows (10/11)
 - **Python**: 3.7 or higher
-- **Dependencies**: Pillow, pyautogui
-- **Accessibility**: Screen recording permissions required for screenshot capture
+- **Dependencies**: Pillow, pyautogui, pygetwindow (Windows)
+- **Permissions**:
+  - macOS: Screen recording permissions required
+  - Windows: No special permissions needed
 
 ## Quick Start
 
@@ -170,35 +172,57 @@ bottom_y = 1660
 
 ## Permissions Required
 
-### macOS Screen Recording Permission
+### macOS
 
+**Screen Recording Permission:**
 1. Open **System Preferences** > **Security & Privacy** > **Privacy**
 2. Select **Screen Recording** from the left sidebar
 3. Enable permission for **Terminal** (or your Python environment)
 4. Restart Terminal after granting permission
 
-### Accessibility Permission (if needed)
-
-Some features may require Accessibility permissions:
+**Accessibility Permission (if needed):**
 1. **System Preferences** > **Security & Privacy** > **Privacy**
 2. Select **Accessibility**
 3. Add and enable **Terminal**
+
+### Windows
+
+No special permissions required. The application will work out of the box.
 
 ## Troubleshooting
 
 ### "No book screenshot folders found"
 - Ensure you've run `capture.py` first
-- Check that folders start with `book_`
+- Check `~/Documents/ebook_suite/` directory
+- Verify folders start with `book_`
 
 ### Screenshots are blank or incorrect
+
+**macOS:**
 - Verify Screen Recording permissions are granted
+- Restart Terminal after granting permissions
 - Ensure browser window is focused during capture
+
+**Windows:**
+- Ensure browser window is focused and in foreground
+- If window detection fails, it will capture full screen (this is normal)
+- Consider installing pygetwindow: `pip install pygetwindow`
+
+**Both platforms:**
 - Try increasing `DELAY_TIMEOUT` for slower systems
+- Ensure browser window is maximized for best results
 
 ### Crop area is incorrect
 - Use the interactive adjustment mode (enter 'a' when prompted)
 - Manually specify coordinates based on your screen resolution
 - Check the preview image to verify crop boundaries
+
+### Platform-specific issues
+
+**Windows: "pygetwindow not installed" message**
+- This is optional but recommended for better window detection
+- Install with: `pip install pygetwindow`
+- Without it, full screen screenshots will be taken (still works)
 
 ## Contributing
 

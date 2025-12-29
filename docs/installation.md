@@ -1,34 +1,45 @@
 # Installation Guide
 
-This guide will walk you through installing the eBook Capture Suite on macOS.
+This guide will walk you through installing the eBook Capture Suite on macOS and Windows.
 
 ## Prerequisites
 
 ### 1. System Requirements
 
-- **Operating System**: macOS 10.14 (Mojave) or later
+- **Operating System**:
+  - macOS 10.14 (Mojave) or later
+  - Windows 10 or Windows 11
 - **Python**: Version 3.7 or higher
 - **Free Disk Space**: At least 500MB for screenshots and PDFs
 
 ### 2. Check Python Installation
 
+**macOS/Linux:**
 Open Terminal and verify Python is installed:
-
 ```bash
 python3 --version
 ```
 
+**Windows:**
+Open Command Prompt or PowerShell and verify Python is installed:
+```cmd
+python --version
+```
+
 Expected output: `Python 3.7.0` or higher
 
-If Python is not installed, download it from [python.org](https://www.python.org/downloads/macos/).
+**If Python is not installed:**
+- macOS: Download from [python.org](https://www.python.org/downloads/macos/)
+- Windows: Download from [python.org](https://www.python.org/downloads/windows/)
 
 ## Installation Steps
 
 ### Option 1: Install via Git (Recommended)
 
+**macOS/Linux:**
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ebook-capture-suite.git
+git clone https://github.com/8nevil8/ebook-capture-suite.git
 
 # Navigate to the directory
 cd ebook-capture-suite
@@ -37,17 +48,44 @@ cd ebook-capture-suite
 pip3 install -r requirements.txt
 ```
 
+**Windows:**
+```cmd
+# Clone the repository
+git clone https://github.com/8nevil8/ebook-capture-suite.git
+
+# Navigate to the directory
+cd ebook-capture-suite
+
+# Install dependencies
+python -m pip install -r requirements.txt
+```
+
 ### Option 2: Manual Installation
 
-1. Download the repository as a ZIP file
+1. Download the repository as a ZIP file from GitHub
 2. Extract to your desired location
-3. Open Terminal and navigate to the extracted folder:
+3. Open Terminal (macOS) or Command Prompt (Windows) and navigate to the extracted folder:
+
+   **macOS/Linux:**
    ```bash
    cd /path/to/ebook-capture-suite
    ```
+
+   **Windows:**
+   ```cmd
+   cd C:\path\to\ebook-capture-suite
+   ```
+
 4. Install dependencies:
+
+   **macOS/Linux:**
    ```bash
    pip3 install -r requirements.txt
+   ```
+
+   **Windows:**
+   ```cmd
+   python -m pip install -r requirements.txt
    ```
 
 ## Installing Dependencies
@@ -91,11 +129,11 @@ deactivate
 
 ## Granting Permissions
 
+### macOS
+
 The suite requires specific macOS permissions to function properly.
 
-### Screen Recording Permission
-
-**Required for**: `capture.py` to take screenshots
+**Screen Recording Permission** (Required for `capture.py` to take screenshots):
 
 1. Open **System Preferences**
 2. Go to **Security & Privacy** > **Privacy** tab
@@ -108,9 +146,7 @@ The suite requires specific macOS permissions to function properly.
 6. Click the lock icon again to save changes
 7. **Important**: Restart Terminal for changes to take effect
 
-### Accessibility Permission (Optional)
-
-**May be required for**: Advanced automation features
+**Accessibility Permission** (Optional - for advanced automation features):
 
 1. Open **System Preferences**
 2. Go to **Security & Privacy** > **Privacy** tab
@@ -122,18 +158,37 @@ The suite requires specific macOS permissions to function properly.
    - Or your Python installation path
 7. Click the lock icon to save
 
+### Windows
+
+No special permissions required! The application will work out of the box.
+
+**Optional Enhancement:**
+For better window detection, install pygetwindow:
+```cmd
+python -m pip install pygetwindow
+```
+
+Without pygetwindow, the tool will capture the full screen instead of just the active window, which still works perfectly fine.
+
 ## Verifying Installation
 
 ### 1. Check Python Dependencies
 
+**macOS/Linux:**
 ```bash
 python3 -c "import PIL; import pyautogui; print('All dependencies installed successfully!')"
+```
+
+**Windows:**
+```cmd
+python -c "import PIL; import pyautogui; print('All dependencies installed successfully!')"
 ```
 
 Expected output: `All dependencies installed successfully!`
 
 ### 2. Test Script Execution
 
+**macOS/Linux:**
 ```bash
 # Test capture script (will start in 15 seconds, press Ctrl+C to cancel)
 python3 src/capture.py
@@ -141,6 +196,16 @@ python3 src/capture.py
 
 # Test process script (should show folder selection or "no folders found")
 python3 src/process.py
+```
+
+**Windows:**
+```cmd
+# Test capture script (will start in 15 seconds, press Ctrl+C to cancel)
+python src/capture.py
+# Press Ctrl+C to cancel
+
+# Test process script (should show folder selection or "no folders found")
+python src/process.py
 ```
 
 ## Troubleshooting Installation

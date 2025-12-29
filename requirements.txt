@@ -1,7 +1,12 @@
-# Core dependencies for ebook-capture-suite
+# Core dependencies for ebook-capture-suite (cross-platform)
 
 # Image processing and manipulation
 Pillow>=10.0.0
 
 # GUI automation for screenshot capture
 pyautogui>=0.9.54
+
+# Windows-specific: Better window detection (optional but recommended)
+# On Windows, install with: pip install pygetwindow
+# On macOS/Linux, this is optional and not needed
+pygetwindow>=0.0.9; sys_platform == 'win32'
