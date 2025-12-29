@@ -1,0 +1,7 @@
+# Core dependencies for ebook-capture-suite
+
+# Image processing and manipulation
+Pillow>=10.0.0
+
+# GUI automation for screenshot capture
+pyautogui>=0.9.54
